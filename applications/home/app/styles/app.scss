@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+$font-family-sans-serif: "IBM Plex Mono", serif !default;
+$display-font-family: "IBM Plex Mono", serif !default;
+
+
+// $orange: #fa6b00 !default;
+// $primary: #4600e1 !default;
+// $secondary: #e1b700 !default;
+// $success: #9be100 !default;
+// $info: #00e1b6 !default;
+// $danger: #da0000 !default;
+// $light: #ecd4cb !default;
+// $dark: #161616 !default;
+
+
+
+// $orange: #fa6b00 !default;
+$primary: #fa6b00 !default;
+$secondary: #BC8F8F !default;
+$success:  #404932 !default;
+$info: #d46b00 !default;
+$danger: #da0000 !default;
+$light: #ecd4cb !default;
+$dark: #253342 !default;
+
+.big-con{
+  background-color: #ecd4cb;
+  // width: 200%;
+}
+
+// .colors {
+//   background-color: #fa6b00;
+//   background-color: #68de7c;
+//   background-color: #F07857;
+//   background-color: #43A5BE;
+//   background-color :#D49147;
+//   background-color: #BC8F8F;
+//   background-color: #253342;
+//   background-color: #ecd4cb;
+//   background-color: #445a64;
+// }
+
+
+$enable-rounded: false !default;
+$enable-negative-margins:     true !default;
+$enable-cssgrid:              true !default;
+
+$spacer: 1rem !default;
+$spacers: (
+  0: 0,
+  1: $spacer * .25,
+  2: $spacer * .5,
+  3: $spacer,
+  4: $spacer * 1.5,
+  5: $spacer * 3,
+  6: $spacer * 4.5,
+  7: $spacer * 6,
+  8: $spacer * 7.5,
+  9: $spacer * 9,
+  10: $spacer * 12,
+) !default;
+
+
+
+@import "node_modules/bootstrap/scss/bootstrap";
+@import "node_modules/animate.css/animate";
+
+.flame-bg {
+	background: linear-gradient(0deg, rgba(153,51,153,1) 0%, rgba(255,51,153,1) 100%);
+	background-color: rgba(0, 0, 0, 0);
+	background-position-x: 0%;
+	background-position-y: 0%;
+	background-repeat: repeat;
+	background-attachment: scroll;
+	background-image: linear-gradient(0deg, rgb(153, 51, 153) 0%, rgb(255, 51, 153) 100%);
+	background-size: auto;
+	background-origin: padding-box;
+	background-clip: border-box;
+	height: 100vh;
+	width: 100vw;
+}
+
+@import "ember-power-select";
+
+
+.hide-brief {
+  // visibility: hidden;
+  display: none;
+  // text-overflow: ellipsis;
+  // white-space: nowrap;
+}
+
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='white' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+.brief-column {
+  transition: all 0.3s ease;
+}
+
+/* Jab brief hide hoga */
+.brief-collapsed .brief-column {
+  min-width: 100px !important;
+  max-width: 100px !important;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.hide-brief {
+  width: 0px !important;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 1px solid #dee2e6; /* Table ka normal border color */
+  padding: 0 !important;
+}
+
+
+.event-economic{
+  background-color: #f4ef50;
+}
+
+.event-social{
+  background-color: rgb(242, 141, 207);
+}
+
+.event-cultural{
+  background-color: rgb(137, 137, 248);
+}
+.event-political{
+  background-color: #BC8F8F;
+}
+
+#year-button:hover{
+  background-color: rgb(218, 215, 215);
+}

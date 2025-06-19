@@ -1,0 +1,55 @@
+<div class="accordion mx-5 m-auto" id="accordion-plays-{{@year}}">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="heading-plays-{{@year}}">
+      <button
+        class="accordion-button collapsed"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#collapse-plays-{{@year}}"
+        aria-expanded="false"
+        aria-controls="collapse-plays-{{@year}}"
+      >
+        <span class="d-block w-100 text-center">
+          {{@year}}
+        </span>
+      </button>
+    </h2>
+
+    <div
+      id="collapse-plays-{{@year}}"
+      class="accordion-collapse collapse"
+      aria-labelledby="heading-plays-{{@year}}"
+      data-bs-parent="#accordion-plays-{{@year}}"
+    >
+      <div class="accordion-body">
+
+        <div class="row fw-bold border-bottom pb-2 mb-2">
+          <div class="col-12 col-md-3">Title</div>
+          <div class="col-12 col-md-2">Language</div>
+          <div class="col-12 col-md-3">Playwright & Director</div>
+          <div class="col-12 col-md-4">Brief</div>
+        </div>
+
+        {{#each @allPlays as |play|}}
+          {{#if (eq play.modules.year @year)}}
+            <div class="row mb-3 border-bottom pb-2">
+              <div
+                class="col-12 col-md-3"
+              >{{play.modules.title}}</div>
+              <div
+                class="col-12 col-md-2"
+              >{{play.modules.language}}</div>
+              <div
+                class="col-12 col-md-3"
+              >{{play.modules.playwrights}}</div>
+              <div
+                class="col-12 col-md-4"
+              >{{play.modules.brief}}</div>
+            </div>
+          {{/if}}
+        {{/each}}
+
+      </div>
+    </div>
+  </div>
+</div>

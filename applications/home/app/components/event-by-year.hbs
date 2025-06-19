@@ -1,0 +1,68 @@
+<div class="accordion m-auto" id="event-accordion-{{@year}}">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="event-heading-{{@year}}">
+      <button
+        class="accordion-button collapsed"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#event-collapse-{{@year}}"
+        aria-expanded="false"
+        aria-controls="event-collapse-{{@year}}"
+      >
+       <span class="d-block w-100 text-center">
+        {{@year}}
+        </span>
+      </button>
+    </h2>
+    <div
+      id="event-collapse-{{@year}}"
+      class="accordion-collapse collapse"
+      aria-labelledby="event-heading-{{@year}}"
+      data-bs-parent="#event-accordion-{{@year}}"
+    >
+      <div class="accordion-body">
+        <div class="row">
+          {{!-- Social --}}
+          <div class="col">
+            <h5>Social</h5>
+            {{#each @allEvents as |event|}}
+              {{#if (and (eq @year event.modules.year) (eq event.modules.event_type "social"))}}
+                <EventTypeByYear @event={{event}} />
+              {{/if}}
+            {{/each}}
+          </div>
+
+          {{!-- Economic --}}
+          <div class="col">
+            <h5>Economic</h5>
+            {{#each @allEvents as |event|}}
+              {{#if (and (eq @year event.modules.year) (eq event.modules.event_type "economic"))}}
+                <EventTypeByYear @event={{event}} />
+              {{/if}}
+            {{/each}}
+          </div>
+
+          {{!-- Political --}}
+          <div class="col">
+            <h5>Political</h5>
+            {{#each @allEvents as |event|}}
+              {{#if (and (eq @year event.modules.year) (eq event.modules.event_type "political"))}}
+                <EventTypeByYear @event={{event}} />
+              {{/if}}
+            {{/each}}
+          </div>
+
+          {{!-- Cultural --}}
+          <div class="col">
+            <h5>Cultural</h5>
+            {{#each @allEvents as |event|}}
+              {{#if (and (eq @year event.modules.year) (eq event.modules.event_type "cultural"))}}
+                <EventTypeByYear @event={{event}} />
+              {{/if}}
+            {{/each}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
