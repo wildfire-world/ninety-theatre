@@ -1,12 +1,13 @@
-{{! <div class="big-con"> }}
-{{! <Navbar /> }}
+<AnimationSwipper />
+<br><br>
 
 
-<h1 class="text-center mt-4 fixed-top">90s Theate in India in the 90s</h1>
+<h1 class="text-center mt-4 text-light animate__fadeInDown">THEATRE IN INDIA IN THE NINTIES</h1>
+
 <div class="d-flex mt-7 ms-3">
   {{! events }}
   <div style="max-width: 80%; min-width:70%;">
-    <div class="text-center my-4 bg-light fs-3">Events</div>
+    <div class="text-center my-4 fs-3">Social Economic Political Cultural Events</div>
     {{#each (range 1989 2001) as |year|}}
       <EventByYear @year={{year}} @allEvents={{@model.milieus}} />
     {{/each}}
@@ -14,7 +15,7 @@
 
   {{! plays }}
   <div style="max-width: 80%; min-width:70%;">
-    <div class="text-center my-4 mx-5 bg-light fs-3">Plays</div>
+    <div class="text-center my-4 mx-5 fs-3">Plays</div>
     {{#each (range 1989 2001) as |year|}}
       <PlaysByYear @year={{year}} @allPlays={{@model.plays}} />
     {{/each}}
@@ -22,7 +23,7 @@
 
   {{! theatre events }}
   <div style="max-width: 80%; min-width:70%;">
-    <div class="text-center my-4 bg-light fs-3">Theatre Milieu</div>
+    <div class="text-center my-4 fs-3">Theatre Milieu</div>
     {{#each (range 1989 2001) as |year|}}
       <TheatreEventByYear
         @year={{year}}

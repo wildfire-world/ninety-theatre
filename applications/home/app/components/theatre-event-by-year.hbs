@@ -1,8 +1,10 @@
+{{!-- <hr id="hr" class=" my-2"> --}}
 <div class="accordion m-auto" id="accordion-theatre-{{@year}}">
+  <hr id="hr" class=" my-2">
   <div class="accordion-item">
     <h2 class="accordion-header" id="heading-theatre-{{@year}}">
       <button
-        class="accordion-button collapsed"
+        class="accordion-button collapsed bg-dark"
         type="button"
         data-bs-toggle="collapse"
         data-bs-target="#collapse-theatre-{{@year}}"
@@ -19,7 +21,7 @@
       aria-labelledby="heading-theatre-{{@year}}"
       data-bs-parent="#accordion-theatre-{{@year}}"
     >
-      <div class="accordion-body">
+      <div class="accordion-body bg-dark">
         <div class="row">
           {{!-- Festival --}}
           <div class="col">
@@ -36,7 +38,7 @@
             <h5>Workshop</h5>
             {{#each @allTheatreMilieus as |theatreEvent|}}
               {{#if (and (eq @year theatreEvent.modules.year) (eq theatreEvent.modules.event_type "workshop"))}}
-                <div>{{theatreEvent.modules.title}}</div>
+                <div class="my-4">{{theatreEvent.modules.title}}</div>
               {{/if}}
             {{/each}}
           </div>
@@ -46,7 +48,7 @@
             <h5>Seminar</h5>
             {{#each @allTheatreMilieus as |theatreEvent|}}
               {{#if (and (eq @year theatreEvent.modules.year) (eq theatreEvent.modules.event_type "seminar"))}}
-                <div>{{theatreEvent.modules.title}}</div>
+                <div class="my-4">{{theatreEvent.modules.title}}</div>
               {{/if}}
             {{/each}}
           </div>
@@ -56,7 +58,7 @@
             <h5>College Festival</h5>
             {{#each @allTheatreMilieus as |theatreEvent|}}
               {{#if (and (eq @year theatreEvent.modules.year) (eq theatreEvent.modules.event_type "college_festival"))}}
-                <div>{{theatreEvent.modules.title}}</div>
+                <div class="my-4">{{theatreEvent.modules.title}}</div>
               {{/if}}
             {{/each}}
           </div>
@@ -66,7 +68,7 @@
             <h5>Award</h5>
             {{#each @allTheatreMilieus as |theatreEvent|}}
               {{#if (and (eq @year theatreEvent.modules.year) (eq theatreEvent.modules.event_type "award"))}}
-                <div>{{theatreEvent.modules.title}}</div>
+                <div class="my-4">{{theatreEvent.modules.title}}</div>
               {{/if}}
             {{/each}}
           </div>

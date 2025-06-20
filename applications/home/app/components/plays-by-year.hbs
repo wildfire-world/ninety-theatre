@@ -1,8 +1,10 @@
+{{!-- <hr id="hr" class=" my-2" style="width: 80%;"> --}}
 <div class="accordion mx-5 m-auto" id="accordion-plays-{{@year}}">
+   <hr id="hr" class=" my-2">
   <div class="accordion-item">
     <h2 class="accordion-header" id="heading-plays-{{@year}}">
       <button
-        class="accordion-button collapsed"
+        class="accordion-button collapsed bg-dark"
         type="button"
         data-bs-toggle="collapse"
         data-bs-target="#collapse-plays-{{@year}}"
@@ -21,7 +23,7 @@
       aria-labelledby="heading-plays-{{@year}}"
       data-bs-parent="#accordion-plays-{{@year}}"
     >
-      <div class="accordion-body">
+      <div class="accordion-body bg-dark">
 
         <div class="row fw-bold border-bottom pb-2 mb-2">
           <div class="col-12 col-md-3">Title</div>
@@ -32,23 +34,22 @@
 
         {{#each @allPlays as |play|}}
           {{#if (eq play.modules.year @year)}}
-            <div class="row mb-3 border-bottom pb-2">
+            <div class="row border-bottom">
               <div
-                class="col-12 col-md-3"
+                class="col col-12 col-md-3 my-5"
               >{{play.modules.title}}</div>
               <div
-                class="col-12 col-md-2"
+                class="col-12 col-md-2 my-5"
               >{{play.modules.language}}</div>
               <div
-                class="col-12 col-md-3"
+                class="col-12 col-md-3 my-5"
               >{{play.modules.playwrights}}</div>
               <div
-                class="col-12 col-md-4"
+                class="col-12 col-md-4 my-5"
               >{{play.modules.brief}}</div>
             </div>
           {{/if}}
         {{/each}}
-
       </div>
     </div>
   </div>

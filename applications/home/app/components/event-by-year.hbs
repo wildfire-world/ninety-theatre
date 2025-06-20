@@ -1,16 +1,17 @@
 <div class="accordion m-auto" id="event-accordion-{{@year}}">
+  <hr id="hr" class="my-2" />
   <div class="accordion-item">
     <h2 class="accordion-header" id="event-heading-{{@year}}">
       <button
-        class="accordion-button collapsed"
+        class="accordion-button collapsed bg-dark"
         type="button"
         data-bs-toggle="collapse"
         data-bs-target="#event-collapse-{{@year}}"
         aria-expanded="false"
         aria-controls="event-collapse-{{@year}}"
       >
-       <span class="d-block w-100 text-center">
-        {{@year}}
+        <span class="d-block w-100 text-center">
+          {{@year}}
         </span>
       </button>
     </h2>
@@ -20,44 +21,44 @@
       aria-labelledby="event-heading-{{@year}}"
       data-bs-parent="#event-accordion-{{@year}}"
     >
-      <div class="accordion-body">
+      <div class="accordion-body bg-dark">
         <div class="row">
           {{!-- Social --}}
           <div class="col">
-            <h5>Social</h5>
+            <h5 class="text-light">Social</h5>
             {{#each @allEvents as |event|}}
               {{#if (and (eq @year event.modules.year) (eq event.modules.event_type "social"))}}
-                <EventTypeByYear @event={{event}} />
+                <div class="text-light my-4">{{event.modules.title}}</div>
               {{/if}}
             {{/each}}
           </div>
 
           {{!-- Economic --}}
           <div class="col">
-            <h5>Economic</h5>
+            <h5 class="text-light">Economic</h5>
             {{#each @allEvents as |event|}}
               {{#if (and (eq @year event.modules.year) (eq event.modules.event_type "economic"))}}
-                <EventTypeByYear @event={{event}} />
+                <div class="text-light my-4">{{event.modules.title}}</div>
               {{/if}}
             {{/each}}
           </div>
 
           {{!-- Political --}}
           <div class="col">
-            <h5>Political</h5>
+            <h5 class="text-light">Political</h5>
             {{#each @allEvents as |event|}}
               {{#if (and (eq @year event.modules.year) (eq event.modules.event_type "political"))}}
-                <EventTypeByYear @event={{event}} />
+                <div class="text-light my-4">{{event.modules.title}}</div>
               {{/if}}
             {{/each}}
           </div>
 
           {{!-- Cultural --}}
           <div class="col">
-            <h5>Cultural</h5>
+            <h5 class="text-light">Cultural</h5>
             {{#each @allEvents as |event|}}
               {{#if (and (eq @year event.modules.year) (eq event.modules.event_type "cultural"))}}
-                <EventTypeByYear @event={{event}} />
+                <div class="text-light my-4">{{event.modules.title}}</div>
               {{/if}}
             {{/each}}
           </div>
