@@ -163,6 +163,9 @@ body {
 
 
 
+
+
+
 .card-stack {
   position: relative;
   width: 240px;
@@ -172,7 +175,7 @@ body {
 }
 
 /* Base styles for all cards */
-.card {
+.card-an {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -188,42 +191,42 @@ body {
 }
 
 /* Layered look — manually styling each one */
-.card:nth-child(1) {
+.card-an:nth-child(1) {
   border: 1px solid #ecd4cb;
   z-index: 8;
 }
-.card:nth-child(2) {
+.card-an:nth-child(2) {
   border: 1px solid #ecd4cb;
   z-index: 7;
   transform: scale(0.97) translateY(10px);
 }
-.card:nth-child(3) {
+.card-an:nth-child(3) {
   border: 1px solid #ecd4cb;
   z-index: 6;
   transform: scale(0.94) translateY(20px);
 }
 
-.card:nth-child(4) {
+.card-an:nth-child(4) {
   border: 1px solid #ecd4cb;
   z-index: 5;
   transform: scale(0.91) translateY(30px);
 }
-.card:nth-child(5) {
+.card-an:nth-child(5) {
   border: 1px solid #ecd4cb;
   z-index: 4;
   transform: scale(0.88) translateY(40px);
 }
-.card:nth-child(6) {
+.card-an:nth-child(6) {
     border: 1px solid #ecd4cb;
   z-index: 3;
   transform: scale(0.85) translateY(50px);
 }
-.card:nth-child(7) {
+.card-an:nth-child(7) {
   border: 1px solid #ecd4cb;
   z-index: 2;
   transform: scale(0.82) translateY(60px);
 }
-.card:nth-child(8) {
+.card-an:nth-child(8) {
   border: 1px solid #ecd4cb;
   z-index: 1;
   transform: scale(0.79) translateY(70px);
