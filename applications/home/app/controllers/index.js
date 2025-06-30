@@ -7,59 +7,33 @@ import { tracked } from '@glimmer/tracking';
 export default class IndexController extends Controller {
   @service store;
   briefVisible = true;
-  @tracked plays;
-  @tracked model;
+    @tracked viewData = 'listform'; // Default is 'list'
 
+  @tracked selectedYear = 1989;
 
-
-
-  // filter
-  // @action
-  // onload() {
-  //   console.log("hello world")
-  //   this.plays = this.model.plays;
-  // }
+  years = [1989, 1990, 1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999, 2000];
 
   @action
-  showBrief() {
-    let tableWrapper = document.getElementById('your-table-wrapper-id');
-    tableWrapper.classList.toggle('brief-collapsed');
-
-    const allBriefData = document.querySelectorAll('.showBriefData');
-    const openSymbol = document.querySelector('.open-symbol');
-    const closeSymbol = document.querySelector('.close-symbol');
-
-    allBriefData.forEach(element => {
-      element.classList.toggle('hide-brief');
-    })
-
-    if (this.briefVisible) {
-      openSymbol.style.display = "none";
-      closeSymbol.style.display = "inline";
-    } else {
-      openSymbol.style.display = "inline";
-      closeSymbol.style.display = "none";
-    }
-    this.briefVisible = !this.briefVisible;
+  selectYear(year) {
+    console.log(year)
+    this.selectedYear = year;
   }
 
+  @action
+  handleListview() {
+    const viewListTypeDataBtn = document.getElementById("list-form")
+        this.viewData = 'listform';
+    console.log(viewListTypeDataBtn);
+  }
 
+  @action
+  handleCardview() {
+    const viewCardTypeDataBtn = document.getElementById("card-form")
+        this.viewData = 'cardform';
+    console.log(viewCardTypeDataBtn);
+  }
 
-
-  // Filter
-  // @action
-  //  filterData(e) {
-  //   e.preventDefault()
-  //   let form = new FormData(e.target);
-  //   const year = form.get('year')
-  //   const language = form.get('language')
-  //   // console.log(form.get('year'), form.get('language'));
-  //   console.log(year, language)
-  //   // console.log(this.plays.map(p => p.modules.year));
-  // }
 }
-
-
 
 
 

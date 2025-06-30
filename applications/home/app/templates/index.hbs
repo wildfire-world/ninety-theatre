@@ -1,63 +1,77 @@
-<AnimationSwipper />
-<br><br>
-<div class="row row-cols-1 mx-auto row-cols-md-3 g-2 justify-content-center">
-  <div class="col">
-    <div class="card h-100 text-white bg-dark text-center rounded-4" style="width: 600px; min-height: 700px; border: 1px solid #ecd4cb;">
-      <div class="card-body d-flex justify-content-center align-items-center">
-        <h1 class="">1</h1>
-      </div>
-    </div>
+{{! <AnimationSwipper /> }}
+<Navbar />
+<br /><br />
+<br /><br />
+<br /><br /><br />
+
+
+
+<div class="d-flex justify-content-between align-items-center px-3 bg-dark py-2" style="position: fixed; top: 120px; width: 100%; z-index: 1030;">
+  {{!-- Left: Year Buttons --}}
+  <div class="d-flex flex-wrap">
+    {{#each this.years as |year|}}
+      <button
+        type="button"
+        class="btn mx-1 {{if (eq year this.selectedYear) 'btn-light' 'btn-outline-light'}}"
+        {{on "click" (fn this.selectYear year)}}
+      >
+        {{year}}
+      </button>
+    {{/each}}
   </div>
-  <div class="col">
-    <div class="card h-100 text-white bg-dark text-center rounded-4" style="width: 600px; min-height: 700px; border: 1px solid #ecd4cb;">
-      <div class="card-body d-flex justify-content-center align-items-center">
-        <h1 class="">2</h1>
-      </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="card h-100 text-white bg-dark text-center rounded-4" style="width: 620px; min-height: 700px; border: 1px solid #ecd4cb;">
-      <div class="card-body d-flex justify-content-center align-items-center">
-        <h1 class="">3</h1>
-      </div>
-    </div>
+
+  {{!--View Buttons --}}
+  <div class="d-flex">
+    {{!-- <p>View type </p> --}}
+    <button
+      class="btn btn-dark py-2 text-light me-2"
+      id="list-form"
+      type="button"
+      {{on "click" this.handleListview}}
+    >
+      <i class="fa-solid fa-list" style="font-size: 30px;"></i>
+    </button>
+
+    <button
+      class="btn btn-dark py-2 text-light"
+      id="card-form"
+      type="button"
+      {{on "click" this.handleCardview}}
+    >
+      <i class="fa-solid fa-table-cells" style="font-size: 30px;"></i>
+    </button>
   </div>
 </div>
 
 
-<br><br>
 
-<h1 class="text-center mt-8 text-light animate__fadeInDown">THEATRE IN INDIA IN THE NINTIES</h1>
+{{!-- <div class="d-flex mt-7">
+  <EventByYear @year={{this.selectedYear}} @allEvents={{@model.events}} />
+  <PlaysByYear @year={{this.selectedYear}} @allPlays={{@model.plays}} />
+  <TheatreEventByYear @year={{this.selectedYear}} @allTheatreMilieus={{@model.theatreMilieus}}/>
+</div> --}}
 
-<div class="d-flex mt-7 ms-3">
-  {{! events }}
-  <div style="max-width: 80%; min-width:70%;">
-    <div class="text-center my-4 fs-3">Social Economic Political Cultural Events</div>
-    {{#each (range 1989 2001) as |year|}}
-      <EventByYear @year={{year}} @allEvents={{@model.milieus}} />
-    {{/each}}
+
+<div class="d-flex ">
+{{#if (eq this.viewData "listform")}}
+  <div class="d-flex mt-7">
+    <EventByYear @year={{this.selectedYear}} @allEvents={{@model.events}} />
+    <PlaysByYear @year={{this.selectedYear}} @allPlays={{@model.plays}} />
+    <TheatreEventByYear
+      @year={{this.selectedYear}}
+      @allTheatreMilieus={{@model.theatreMilieus}}
+    />
   </div>
-
-  {{! plays }}
-  <div style="max-width: 80%; min-width:70%;">
-    <div class="text-center my-4 mx-5 fs-3">Plays</div>
-    {{#each (range 1989 2001) as |year|}}
-      <PlaysByYear @year={{year}} @allPlays={{@model.plays}} />
-    {{/each}}
+{{else if (eq this.viewData "cardform")}}
+  <div class="d-flex mt-7 gap-5 justify-content-center">
+    <EventsCardView @year={{this.selectedYear}} @allEvents={{@model.events}} />
+    <PlaysCardView @year={{this.selectedYear}} @allPlays={{@model.plays}} />
+    <TheatreCardView @year={{this.selectedYear}} @allTheatreMilieus={{@model.theatreMilieus}} />
   </div>
-
-  {{! theatre events }}
-  <div style="max-width: 80%; min-width:70%;">
-    <div class="text-center my-4 fs-3">Theatre Milieu</div>
-    {{#each (range 1989 2001) as |year|}}
-      <TheatreEventByYear
-        @year={{year}}
-        @allTheatreMilieus={{@model.theatreMilieus}}
-      />
-    {{/each}}
-  </div>
+{{/if}}
 
 </div>
+
 
 
 {{outlet}}

@@ -1,56 +1,51 @@
-{{!-- <hr id="hr" class=" my-2" style="width: 80%;"> --}}
-<div class="accordion mx-5 m-auto" id="accordion-plays-{{@year}}">
-   <hr id="hr" class=" my-2">
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="heading-plays-{{@year}}">
-      <button
-        class="accordion-button collapsed bg-dark"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#collapse-plays-{{@year}}"
-        aria-expanded="false"
-        aria-controls="collapse-plays-{{@year}}"
-      >
-        <span class="d-block w-100 text-center">
-          {{@year}}
-        </span>
-      </button>
-    </h2>
 
-    <div
-      id="collapse-plays-{{@year}}"
-      class="accordion-collapse collapse"
-      aria-labelledby="heading-plays-{{@year}}"
-      data-bs-parent="#accordion-plays-{{@year}}"
-    >
-      <div class="accordion-body bg-dark">
 
-        <div class="row fw-bold border-bottom pb-2 mb-2">
-          <div class="col-12 col-md-3">Title</div>
-          <div class="col-12 col-md-2">Language</div>
-          <div class="col-12 col-md-3">Playwright & Director</div>
-          <div class="col-12 col-md-4">Brief</div>
-        </div>
 
+
+
+
+
+
+<div class="">
+  <h3 class="text-light text-center mb-4"> Plays </h3>
+  {{!-- {{on "click" this.showBrief}} Plays - {{@year}} --}}
+  <div style="min-width:70%;" class="mx-5" id="tableWraper">
+    <table class="table table-dark table-bordered w-100">
+      <thead>
+        <tr class="text-center text-light">
+          <th style="min-width: 200px;">Title</th>
+          <th style="min-width: 200px;">Language</th>
+          <th style="min-width: 250px;">Playwright & Director</th>
+          <th
+            class="brief-column"
+            id="briefHead"
+            {{on "click" this.showBrief}}
+            style="cursor: pointer; min-width: 550px;"
+          >
+            {{!-- Brief --}}
+            <span class="open-symbol">Brief ∧</span>
+            <span class="close-symbol" style="display: none;">Brief ></span>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
         {{#each @allPlays as |play|}}
           {{#if (eq play.modules.year @year)}}
-            <div class="row border-bottom">
-              <div
-                class="col col-12 col-md-3 my-5"
-              >{{play.modules.title}}</div>
-              <div
-                class="col-12 col-md-2 my-5"
-              >{{play.modules.language}}</div>
-              <div
-                class="col-12 col-md-3 my-5"
-              >{{play.modules.playwrights}}</div>
-              <div
-                class="col-12 col-md-4 my-5"
-              >{{play.modules.brief}}</div>
-            </div>
+            <tr>
+              <td class="my-4 text-wrap text-light">{{play.modules.title}}</td>
+              <td
+                class="my-4 text-wrap text-light"
+              >{{play.modules.language}}</td>
+              <td
+                class="my-4 text-wrap text-light"
+              >{{play.modules.playwrights}}</td>
+              <td class="my-4 text-wrap text-light">
+                <span class="showBriefData">{{play.modules.brief}}</span>
+              </td>
+            </tr>
           {{/if}}
         {{/each}}
-      </div>
-    </div>
+      </tbody>
+    </table>
   </div>
 </div>

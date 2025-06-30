@@ -1,79 +1,56 @@
-{{!-- <hr id="hr" class=" my-2"> --}}
-<div class="accordion m-auto" id="accordion-theatre-{{@year}}">
-  <hr id="hr" class=" my-2">
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="heading-theatre-{{@year}}">
-      <button
-        class="accordion-button collapsed bg-dark"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#collapse-theatre-{{@year}}"
-        aria-expanded="false"
-        aria-controls="collapse-theatre-{{@year}}"
-      >
-       <span class="d-block w-100 text-center">
-        {{@year}}
-        </span>        </button>
-    </h2>
-    <div
-      id="collapse-theatre-{{@year}}"
-      class="accordion-collapse collapse"
-      aria-labelledby="heading-theatre-{{@year}}"
-      data-bs-parent="#accordion-theatre-{{@year}}"
-    >
-      <div class="accordion-body bg-dark">
-        <div class="row">
-          {{!-- Festival --}}
-          <div class="col">
-            <h5>Festival</h5>
-            {{#each @allTheatreMilieus as |theatreEvent|}}
-              {{#if (and (eq @year theatreEvent.modules.year) (eq theatreEvent.modules.event_type "festival"))}}
-                <div>{{theatreEvent.modules.title}}</div>
-              {{/if}}
-            {{/each}}
-          </div>
 
-          {{!-- Workshop --}}
-          <div class="col">
-            <h5>Workshop</h5>
-            {{#each @allTheatreMilieus as |theatreEvent|}}
-              {{#if (and (eq @year theatreEvent.modules.year) (eq theatreEvent.modules.event_type "workshop"))}}
-                <div class="my-4">{{theatreEvent.modules.title}}</div>
-              {{/if}}
-            {{/each}}
-          </div>
-
-          {{!-- Seminar --}}
-          <div class="col">
-            <h5>Seminar</h5>
-            {{#each @allTheatreMilieus as |theatreEvent|}}
-              {{#if (and (eq @year theatreEvent.modules.year) (eq theatreEvent.modules.event_type "seminar"))}}
-                <div class="my-4">{{theatreEvent.modules.title}}</div>
-              {{/if}}
-            {{/each}}
-          </div>
-
-          {{!-- College Festival --}}
-          <div class="col">
-            <h5>College Festival</h5>
-            {{#each @allTheatreMilieus as |theatreEvent|}}
-              {{#if (and (eq @year theatreEvent.modules.year) (eq theatreEvent.modules.event_type "college_festival"))}}
-                <div class="my-4">{{theatreEvent.modules.title}}</div>
-              {{/if}}
-            {{/each}}
-          </div>
-
-          {{!-- Award --}}
-          <div class="col">
-            <h5>Award</h5>
-            {{#each @allTheatreMilieus as |theatreEvent|}}
-              {{#if (and (eq @year theatreEvent.modules.year) (eq theatreEvent.modules.event_type "award"))}}
-                <div class="my-4">{{theatreEvent.modules.title}}</div>
-              {{/if}}
-            {{/each}}
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+<div>
+<h3 class="text-light text-center mb-4">Theatre Events</h3>
+<div style="min-width:70%;">
+  <table class="table table-dark table-bordered w-100">
+    <thead>
+      <tr class="text-center">
+        <th style="min-width: 200px;">Festival</th>
+        <th style="min-width: 200px;">Workshop</th>
+        <th style="min-width: 200px;">Seminar</th>
+        <th style="min-width: 200px;">College Festival</th>
+        <th style="min-width: 200px;">Award</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          {{#each @allTheatreMilieus as |item|}}
+            {{#if (and (eq item.modules.year @year) (eq item.modules.event_type "festival"))}}
+              <div class="my-4 text-wrap">{{item.modules.title}}</div>
+            {{/if}}
+          {{/each}}
+        </td>
+        <td>
+          {{#each @allTheatreMilieus as |item|}}
+            {{#if (and (eq item.modules.year @year) (eq item.modules.event_type "workshop"))}}
+              <div class="my-4 text-wrap">{{item.modules.title}}</div>
+            {{/if}}
+          {{/each}}
+        </td>
+        <td>
+          {{#each @allTheatreMilieus as |item|}}
+            {{#if (and (eq item.modules.year @year) (eq item.modules.event_type "seminar"))}}
+              <div class="my-4 text-wrap">{{item.modules.title}}</div>
+            {{/if}}
+          {{/each}}
+        </td>
+        <td>
+          {{#each @allTheatreMilieus as |item|}}
+            {{#if (and (eq item.modules.year @year) (eq item.modules.event_type "college_festival"))}}
+              <div class="my-4 text-wrap">{{item.modules.title}}</div>
+            {{/if}}
+          {{/each}}
+        </td>
+        <td>
+          {{#each @allTheatreMilieus as |item|}}
+            {{#if (and (eq item.modules.year @year) (eq item.modules.event_type "award"))}}
+              <div class="my-4 text-wrap">{{item.modules.title}}</div>
+            {{/if}}
+          {{/each}}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 </div>

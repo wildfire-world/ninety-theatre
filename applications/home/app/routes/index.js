@@ -7,12 +7,12 @@ export default class IndexRoute extends Route {
 
   async model() {
     let plays = await this.store.query('play', { modules: { content_privacy: 'public' }, page: { limit: -1 }, sort: "title" });
-    let milieus = await this.store.query('milieu', { modules: { content_privacy: 'public' }, page: { limit: -1 }, sort: "title" });
+    let events = await this.store.query('milieu', { modules: { content_privacy: 'public' }, page: { limit: -1 }, sort: "title" });
     let theatreMilieus = await this.store.query('theatre milieu', { modules: { content_privacy: 'public' }, page: { limit: -1 }, sort: "title" });
 
-    // console.log("fetch error",theatreMilieus)
+    // console.log(events)
     return {
-      milieus,
+      events,
       plays,
       theatreMilieus
     }

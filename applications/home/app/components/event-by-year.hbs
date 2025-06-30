@@ -1,69 +1,51 @@
-<div class="accordion m-auto" id="event-accordion-{{@year}}">
-  <hr id="hr" class="my-2" />
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="event-heading-{{@year}}">
-      <button
-        class="accordion-button collapsed bg-dark"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#event-collapse-{{@year}}"
-        aria-expanded="false"
-        aria-controls="event-collapse-{{@year}}"
-      >
-        <span class="d-block w-100 text-center">
-          {{@year}}
-        </span>
-      </button>
-    </h2>
-    <div
-      id="event-collapse-{{@year}}"
-      class="accordion-collapse collapse"
-      aria-labelledby="event-heading-{{@year}}"
-      data-bs-parent="#event-accordion-{{@year}}"
-    >
-      <div class="accordion-body bg-dark">
-        <div class="row">
-          {{!-- Social --}}
-          <div class="col">
-            <h5 class="text-light">Social</h5>
-            {{#each @allEvents as |event|}}
-              {{#if (and (eq @year event.modules.year) (eq event.modules.event_type "social"))}}
-                <div class="text-light my-4">{{event.modules.title}}</div>
-              {{/if}}
-            {{/each}}
-          </div>
+{{!-- event-by-year.hbs --}}
+{{!-- <h3 class="text-light mb-4">Events - {{@year}}</h3> --}}
 
-          {{!-- Economic --}}
-          <div class="col">
-            <h5 class="text-light">Economic</h5>
-            {{#each @allEvents as |event|}}
-              {{#if (and (eq @year event.modules.year) (eq event.modules.event_type "economic"))}}
-                <div class="text-light my-4">{{event.modules.title}}</div>
-              {{/if}}
-            {{/each}}
-          </div>
+<div>
+  <h3 class="text-light text-center mb-4">Social Economic Political Cultural Events </h3>
 
-          {{!-- Political --}}
-          <div class="col">
-            <h5 class="text-light">Political</h5>
-            {{#each @allEvents as |event|}}
-              {{#if (and (eq @year event.modules.year) (eq event.modules.event_type "political"))}}
-                <div class="text-light my-4">{{event.modules.title}}</div>
-              {{/if}}
-            {{/each}}
-          </div>
-
-          {{!-- Cultural --}}
-          <div class="col">
-            <h5 class="text-light">Cultural</h5>
-            {{#each @allEvents as |event|}}
-              {{#if (and (eq @year event.modules.year) (eq event.modules.event_type "cultural"))}}
-                <div class="text-light my-4">{{event.modules.title}}</div>
-              {{/if}}
-            {{/each}}
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+<div style="min-width:70%;" class="">
+  <table class="table table-dark table-bordered w-100">
+    <thead>
+      <tr class="text-center">
+        <th style="min-width: 200px;">Social</th>
+        <th style="min-width: 200px;">Economic</th>
+        <th style="min-width: 200px;">Political</th>
+        <th style="min-width: 200px; max-width:200px;">Cultural</th>
+      </tr>
+    </thead>
+    <tbody class="animate__animated animate__fadeIn">
+      <tr>
+        <td>
+          {{#each @allEvents as |event|}}
+            {{#if (and (eq event.modules.year @year) (eq event.modules.event_type "social"))}}
+              <div class="my-4 text-wrap">{{event.modules.title}}</div>
+            {{/if}}
+          {{/each}}
+        </td>
+        <td>
+          {{#each @allEvents as |event|}}
+            {{#if (and (eq event.modules.year @year) (eq event.modules.event_type "economic"))}}
+              <div class="my-4 text-wrap">{{event.modules.title}}</div>
+            {{/if}}
+          {{/each}}
+        </td>
+        <td>
+          {{#each @allEvents as |event|}}
+            {{#if (and (eq event.modules.year @year) (eq event.modules.event_type "political"))}}
+              <div class="my-4 text-wrap">{{event.modules.title}}</div>
+            {{/if}}
+          {{/each}}
+        </td>
+        <td>
+          {{#each @allEvents as |event|}}
+            {{#if (and (eq event.modules.year @year) (eq event.modules.event_type "cultural"))}}
+              <div class="my-4 text-wrap">{{event.modules.title}}</div>
+            {{/if}}
+          {{/each}}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 </div>
