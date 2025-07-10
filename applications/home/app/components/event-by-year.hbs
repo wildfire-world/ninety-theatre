@@ -1,6 +1,5 @@
 {{!-- event-by-year.hbs --}}
 {{!-- <h3 class="text-light mb-4">Events - {{@year}}</h3> --}}
-
 <div>
   <h3 class="text-light text-center mb-4">Social Economic Political Cultural Events </h3>
 
@@ -19,28 +18,28 @@
         <td>
           {{#each @allEvents as |event|}}
             {{#if (and (eq event.modules.year @year) (eq event.modules.event_type "social"))}}
-              <div class="my-4 text-wrap">{{event.modules.title}}</div>
+              <div class="my-4 mx-2 text-wrap">{{event.modules.title}}</div>
             {{/if}}
           {{/each}}
         </td>
         <td>
           {{#each @allEvents as |event|}}
             {{#if (and (eq event.modules.year @year) (eq event.modules.event_type "economic"))}}
-              <div class="my-4 text-wrap">{{event.modules.title}}</div>
+              <div class="my-4 mx-2 text-wrap">{{event.modules.title}}</div>
             {{/if}}
           {{/each}}
         </td>
         <td>
           {{#each @allEvents as |event|}}
             {{#if (and (eq event.modules.year @year) (eq event.modules.event_type "political"))}}
-              <div class="my-4 text-wrap">{{event.modules.title}}</div>
+              <div class="my-4 mx-2 text-wrap">{{event.modules.title}}</div>
             {{/if}}
           {{/each}}
         </td>
         <td>
           {{#each @allEvents as |event|}}
             {{#if (and (eq event.modules.year @year) (eq event.modules.event_type "cultural"))}}
-              <div class="my-4 text-wrap">{{event.modules.title}}</div>
+              <div class="my-4 mx-2 text-wrap">{{event.modules.title}}</div>
             {{/if}}
           {{/each}}
         </td>

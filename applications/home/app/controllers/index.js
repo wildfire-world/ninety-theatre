@@ -15,22 +15,22 @@ export default class IndexController extends Controller {
 
   @action
   selectYear(year) {
-    console.log(year)
+    // console.log(year)
     this.selectedYear = year;
   }
 
   @action
   handleListview() {
-    const viewListTypeDataBtn = document.getElementById("list-form")
+    // const viewListTypeDataBtn = document.getElementById("list-form")
         this.viewData = 'listform';
-    console.log(viewListTypeDataBtn);
+    // console.log(viewListTypeDataBtn);
   }
 
   @action
   handleCardview() {
-    const viewCardTypeDataBtn = document.getElementById("card-form")
+    // const viewCardTypeDataBtn = document.getElementById("card-form")
         this.viewData = 'cardform';
-    console.log(viewCardTypeDataBtn);
+    // console.log(viewCardTypeDataBtn);
   }
 
 }

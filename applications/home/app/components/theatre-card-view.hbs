@@ -1,5 +1,5 @@
 <div class="card h-100 bg-dark text-light p-3" style="width: 800px;">
-  <h4 class="text-center mb-3">Theatre events</h4>
+  <h4 class="text-center mb-4">Theatre events</h4>
 
     <div class="row row-cols-1 row-cols-md-3 g-3">
       {{#each @allTheatreMilieus as |theatre|}}
@@ -7,6 +7,7 @@
           <div class="col">
             <div
               class="card bg-dark text-light h-100 p-3 position-relative border border-light border-1">
+
               <p class="card-title">{{theatre.modules.title}}</p>
 
               <span class="text-uppercase mt-3 text-warning small">

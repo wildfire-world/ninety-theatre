@@ -7,7 +7,7 @@ export default class PlaysByYear extends Component {
 
   @action
   showBrief() {
-    console.log("Brief clicked ✅");
+    // console.log("Brief clicked");
 
     let tableWrapper = document.getElementById('tableWraper');
     tableWrapper?.classList.toggle('brief-collapsed');

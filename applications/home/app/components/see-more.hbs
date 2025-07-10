@@ -1,0 +1,26 @@
+{{!-- <p>{{@brief}}</p> --}}
+{{!-- {{#if this.showBrief}}
+  <p class="mt-2">{{@brief}}</p>
+  <p {{on "click" this.toggleBrief}} class="mt-1 text-light see-more" style="width: 90px;">Read more</p>
+{{else}}
+  <p {{on "click" this.toggleBrief}} class="mt-2 text-light see-more" style="width: 90px;">Less More</p>
+{{/if}} --}}
+
+<div class="see-more-wrapper">
+  <p
+    {{on "click" this.toggleBrief}}
+    class="see-more text-light mt-2"
+    style="width: 90px;"
+  >
+    {{if this.showBrief "Less More" "Read more"}}
+  </p>
+
+  <div
+    class="brief-text-wrapper {{if this.showBrief 'expand'}}"
+  >
+    <p class="mt-2 text-light">{{@brief}}</p>
+  </div>
+</div>
+
+
+
