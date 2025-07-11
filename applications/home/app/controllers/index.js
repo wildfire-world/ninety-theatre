@@ -2,6 +2,7 @@ import Controller from '@ember/controller';
 import { action } from '@ember/object';
 import { service } from '@ember/service';
 import { tracked } from '@glimmer/tracking';
+import ScrollReveal from 'scrollreveal';
 
 
 export default class IndexController extends Controller {
@@ -21,16 +22,12 @@ export default class IndexController extends Controller {
 
   @action
   handleListview() {
-    // const viewListTypeDataBtn = document.getElementById("list-form")
         this.viewData = 'listform';
-    // console.log(viewListTypeDataBtn);
   }
 
   @action
   handleCardview() {
-    // const viewCardTypeDataBtn = document.getElementById("card-form")
         this.viewData = 'cardform';
-    // console.log(viewCardTypeDataBtn);
   }
 
 }

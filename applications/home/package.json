@@ -67,6 +67,7 @@
     "ember-fetch": "^8.1.2",
     "ember-file-upload": "^9.4.0",
     "ember-keyboard": "^9.0.1",
+    "ember-lifeline": "^7.0.0",
     "ember-load-initializers": "^3.0.1",
     "ember-math-helpers": "^5.0.0",
     "ember-modifier": "^4.2.0",
@@ -113,6 +114,8 @@
     "edition": "octane"
   },
   "dependencies": {
+    "aos": "^2.3.4",
+    "scrollreveal": "^4.0.9",
     "swiper": "^11.2.8"
   }
 }

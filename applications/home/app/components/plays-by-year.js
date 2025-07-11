@@ -1,9 +1,31 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
+// import ScrollReveal from 'scrollreveal';
+import { service } from '@ember/service';
 
 export default class PlaysByYear extends Component {
   @tracked briefVisible = true;
+@service('scroll-animate') scrollAnimator;
+
+  //  animateReveal(element) {
+  //   setTimeout(() => {
+  //     ScrollReveal().reveal(element, {
+  //       distance: '20px',
+  //       origin: 'bottom',
+  //       duration: 1000,
+  //       easing: 'ease-in-out',
+  //       reset: false
+  //     });
+  //   }, 100);
+// }
+
+ @action
+  animateReveal(element) {
+    this.scrollAnimator.revealElement(element);
+  }
+
+
 
   @action
   showBrief() {

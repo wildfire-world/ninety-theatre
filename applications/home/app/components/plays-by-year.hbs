@@ -1,5 +1,5 @@
 
-<div class="">
+<div  class="reveal-block">
   <h3 class="text-light text-center mb-4"> Plays </h3>
   <div style="min-width:70%;" class="mx-5" id="tableWraper">
     <table class="table table-dark table-bordered w-100">
@@ -20,7 +20,7 @@
           </th>
         </tr>
       </thead>
-      <tbody>
+      <tbody {{did-insert this.animateReveal}}>
         {{#each @allPlays as |play|}}
           {{#if (eq play.modules.year @year)}}
             <tr>
