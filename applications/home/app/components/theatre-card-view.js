@@ -1,7 +1,8 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { service } from '@ember/service';
-export default class PlaysCardView extends Component {
+
+export default class TheatreCardView extends Component {
 
   @service('scroll-animate') scrollAnimator;
 
@@ -9,5 +10,4 @@ export default class PlaysCardView extends Component {
   animateReveal(element) {
     this.scrollAnimator.revealElement(element);
   }
-
 }

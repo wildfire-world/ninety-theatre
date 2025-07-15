@@ -20,7 +20,8 @@
     {{/each}}
   </div>
 
-  {{!--View Buttons --}}
+
+  {{!--View type Buttons --}}
   <div class="d-flex">
     {{!-- <p>View type </p> --}}
     <button
@@ -57,9 +58,7 @@
   <div class="d-flex mt-7">
     <EventByYear @year={{this.selectedYear}} @allEvents={{@model.events}} />
     <PlaysByYear @year={{this.selectedYear}} @allPlays={{@model.plays}} />
-    <TheatreEventByYear
-      @year={{this.selectedYear}}
-      @allTheatreMilieus={{@model.theatreMilieus}}
+    <TheatreEventByYear @year={{this.selectedYear}} @allTheatreMilieus={{@model.theatreMilieus}}
     />
   </div>
 {{else if (eq this.viewData "cardform")}}
