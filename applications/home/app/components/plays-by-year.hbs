@@ -23,7 +23,7 @@
       <tbody >
         {{#each @allPlays as |play|}}
           {{#if (eq play.modules.year @year)}}
-            <tr class="" {{did-insert this.animateReveal}}>
+            <tr class="sr-hidden" {{did-insert this.animateReveal}}>
               <td class="my-4 mx-2 text-wrap text-light py-4">{{play.modules.title}}</td>
               <td
                 class="my-4 mx-2 text-wrap text-light py-4"

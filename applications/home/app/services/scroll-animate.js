@@ -2,16 +2,20 @@ import Service from '@ember/service';
 import ScrollReveal from 'scrollreveal';
 
 export default class ScrollAnimateService extends Service {
-   revealElement(element) {
-    setTimeout(() => {
-      ScrollReveal().clean(element); // pehle se lagi animation ko remove karo
+  revealElement(element) {
+    // Ensure initial state
+    element.classList.remove('sr-hidden');
+
+    requestAnimationFrame(() => {
+      ScrollReveal().clean(element); // Remove old animation
       ScrollReveal().reveal(element, {
-        distance: '20px',
+        distance: '30px',
         origin: 'bottom',
-        duration: 800,
+        duration: 600,
+        opacity: 0,
         easing: 'ease-in-out',
         reset: false
       });
-    }, 100);
+    });
   }
 }
