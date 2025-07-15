@@ -6,9 +6,9 @@ export default class ScrollAnimateService extends Service {
     setTimeout(() => {
       ScrollReveal().clean(element); // pehle se lagi animation ko remove karo
       ScrollReveal().reveal(element, {
-        distance: '30px',
+        distance: '20px',
         origin: 'bottom',
-        duration: 1000,
+        duration: 800,
         easing: 'ease-in-out',
         reset: false
       });

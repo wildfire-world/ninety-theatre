@@ -12,40 +12,40 @@
         <th style="min-width: 200px;">Award</th>
       </tr>
     </thead>
-    <tbody {{did-insert this.animateReveal}}>
-      <tr>
+    <tbody>
+      <tr {{did-insert this.animateReveal}} >
         <td>
           {{#each @allTheatreMilieus as |item|}}
             {{#if (and (eq item.modules.year @year) (eq item.modules.event_type "festival"))}}
-              <div class="my-4 mx-2 text-wrap">{{item.modules.title}}</div>
+              <div class="my-4 mx-2 text-wrap" {{did-insert this.animateReveal}}>{{item.modules.title}}</div>
             {{/if}}
           {{/each}}
         </td>
         <td>
           {{#each @allTheatreMilieus as |item|}}
             {{#if (and (eq item.modules.year @year) (eq item.modules.event_type "workshop"))}}
-              <div class="my-4 mx-2 text-wrap">{{item.modules.title}}</div>
+              <div class="my-4 mx-2 text-wrap" {{did-insert this.animateReveal}}>{{item.modules.title}}</div>
             {{/if}}
           {{/each}}
         </td>
         <td>
           {{#each @allTheatreMilieus as |item|}}
             {{#if (and (eq item.modules.year @year) (eq item.modules.event_type "seminar"))}}
-              <div class="my-4 mx-2 text-wrap">{{item.modules.title}}</div>
+              <div class="my-4 mx-2 text-wrap" {{did-insert this.animateReveal}}>{{item.modules.title}}</div>
             {{/if}}
           {{/each}}
         </td>
         <td>
           {{#each @allTheatreMilieus as |item|}}
             {{#if (and (eq item.modules.year @year) (eq item.modules.event_type "college_festival"))}}
-              <div class="my-4 mx-2 text-wrap">{{item.modules.title}}</div>
+              <div class="my-4 mx-2 text-wrap" {{did-insert this.animateReveal}}>{{item.modules.title}}</div>
             {{/if}}
           {{/each}}
         </td>
         <td>
           {{#each @allTheatreMilieus as |item|}}
             {{#if (and (eq item.modules.year @year) (eq item.modules.event_type "award"))}}
-              <div class="my-4 mx-2 text-wrap">{{item.modules.title}}</div>
+              <div class="my-4 mx-2 text-wrap" {{did-insert this.animateReveal}}>{{item.modules.title}}</div>
             {{/if}}
           {{/each}}
         </td>
