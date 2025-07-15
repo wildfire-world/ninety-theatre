@@ -27,6 +27,7 @@ export default class PlaysByYear extends Component {
 
 
 
+
   @action
   showBrief() {
     // console.log("Brief clicked");

@@ -20,18 +20,18 @@
           </th>
         </tr>
       </thead>
-      <tbody {{did-insert this.animateReveal}}>
+      <tbody {{did-insert this.animateReveal}} >
         {{#each @allPlays as |play|}}
           {{#if (eq play.modules.year @year)}}
-            <tr>
-              <td class="my-4 mx-2 text-wrap text-light">{{play.modules.title}}</td>
+            <tr class="" >
+              <td class="my-4 mx-2 text-wrap text-light py-4">{{play.modules.title}}</td>
               <td
-                class="my-4 mx-2 text-wrap text-light"
+                class="my-4 mx-2 text-wrap text-light py-4"
               >{{play.modules.language}}</td>
               <td
-                class="my-4 mx-2 text-wrap text-light"
+                class="my-4 mx-2 text-wrap text-light py-4"
               >{{play.modules.playwrights}}</td>
-              <td class="my-4 mx-2 text-wrap text-light">
+              <td class="my-4 mx-2 text-wrap text-light py-4">
                 <span class="showBriefData">{{play.modules.brief}}</span>
               </td>
             </tr>
