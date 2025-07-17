@@ -4,73 +4,93 @@
 <br /><br />
 <br /><br /><br />
 
+<div
+  class="d-flex justify-content-between align-items-center px-3 bg-dark py-2"
+  style="position: fixed; top: 120px; width: 100%; z-index: 1030;"
+>
+  {{! Left: Year Buttons }}
+<div class="d-flex flex-wrap">
+  {{!-- {{#each this.years as |year|}}
+    <button
+      type="button"
+      class="btn mx-1
+        {{if
+          (eq year this.activeYear)
+          'btn-light text-dark border border-light'
+          'btn-outline-light text-light border border-light'
+        }}"
+      {{on "click" (fn this.handleActiveYear year)}}
+    >
+      {{year}}
+    </button>
+  {{/each}} --}}
 
-
-<div class="d-flex justify-content-between align-items-center px-3 bg-dark py-2" style="position: fixed; top: 120px; width: 100%; z-index: 1030;">
-  {{!-- Left: Year Buttons --}}
-  <div class="d-flex flex-wrap">
-    {{#each this.years as |year|}}
+      {{#each this.years as |year|}}
       <button
         type="button"
-        class="btn mx-1 {{if (eq year this.selectedYear) 'btn-light' 'btn-outline-light'}}"
-        {{on "click" (fn this.selectYear year)}}
+        class="btn mx-1 {{if (eq year this.activeYear) 'btn-light' 'btn-outline-light'}}"
+        {{on "click" (fn this.handleActiveYear year)}}
       >
         {{year}}
       </button>
     {{/each}}
-  </div>
+</div>
 
 
-  {{!--View type Buttons --}}
-  <div class="d-flex">
-    {{!-- <p>View type </p> --}}
-    <button
-      class="btn btn-dark py-2 text-light me-2"
-      id="list-form"
-      type="button"
-      {{on "click" this.handleListview}}
-    >
-      <i class="fa-solid fa-list" style="font-size: 30px;"></i>
-    </button>
 
-    <button
-      class="btn btn-dark py-2 text-light"
-      id="card-form"
-      type="button"
-      {{on "click" this.handleCardview}}
-    >
-      <i class="fa-solid fa-table-cells" style="font-size: 30px;"></i>
-    </button>
-  </div>
+  {{!View type Buttons }}
+<div class="d-flex">
+  <button
+    class="btn btn-dark py-2 text-light me-2
+      {{if (eq this.viewData "listform") "border border-1 border-light"}}"
+    id="list-form"
+    type="button"
+    {{on "click" this.handleListview}}
+  >
+    <i class="fa-solid fa-list" style="font-size: 30px;"></i>
+  </button>
+
+  <button
+    class="btn btn-dark py-2 text-light
+      {{if (eq this.viewData "cardform") "border border-1 border-light"}}"
+    id="card-form"
+    type="button"
+    {{on "click" this.handleCardview}}
+  >
+    <i class="fa-solid fa-table-cells" style="font-size: 30px;"></i>
+  </button>
+</div>
 </div>
 
 
 
 {{!-- <div class="d-flex mt-7">
-  <EventByYear @year={{this.selectedYear}} @allEvents={{@model.events}} />
-  <PlaysByYear @year={{this.selectedYear}} @allPlays={{@model.plays}} />
-  <TheatreEventByYear @year={{this.selectedYear}} @allTheatreMilieus={{@model.theatreMilieus}}/>
+  <EventByYear @year={{this.activeYear}} @allEvents={{@model.events}} />
+  <PlaysByYear @year={{this.activeYear}} @allPlays={{@model.plays}} />
+  <TheatreEventByYear @year={{this.activeYear}} @allTheatreMilieus={{@model.theatreMilieus}}/>
 </div> --}}
 
-
-<div class="d-flex ">
-{{#if (eq this.viewData "listform")}}
-  <div class="d-flex mt-7">
-    <EventByYear @year={{this.selectedYear}} @allEvents={{@model.events}} />
-    <PlaysByYear @year={{this.selectedYear}} @allPlays={{@model.plays}} />
-    <TheatreEventByYear @year={{this.selectedYear}} @allTheatreMilieus={{@model.theatreMilieus}}
-    />
-  </div>
-{{else if (eq this.viewData "cardform")}}
-  <div class="d-flex mt-7 gap-5 justify-content-center">
-    <EventsCardView @year={{this.selectedYear}} @allEvents={{@model.events}} />
-    <PlaysCardView @year={{this.selectedYear}} @allPlays={{@model.plays}} />
-    <TheatreEventCardView @year={{this.selectedYear}} @allTheatreMilieus={{@model.theatreMilieus}} />
-  </div>
-{{/if}}
+<div class="d-flex">
+  {{#if (eq this.viewData "listform")}}
+    <div class="d-flex mt-7">
+      <EventByYear @year={{this.activeYear}} @allEvents={{@model.events}} />
+      <PlaysByYear @year={{this.activeYear}} @allPlays={{@model.plays}} />
+      <TheatreEventByYear
+        @year={{this.activeYear}}
+        @allTheatreMilieus={{@model.theatreMilieus}}
+      />
+    </div>
+  {{else if (eq this.viewData "cardform")}}
+    <div class="d-flex mt-7 gap-5 justify-content-center">
+      <EventsCardView @year={{this.activeYear}} @allEvents={{@model.events}} />
+      <PlaysCardView @year={{this.activeYear}} @allPlays={{@model.plays}} />
+      <TheatreEventCardView
+        @year={{this.activeYear}}
+        @allTheatreMilieus={{@model.theatreMilieus}}
+      />
+    </div>
+  {{/if}}
 
 </div>
-
-
 
 {{outlet}}
